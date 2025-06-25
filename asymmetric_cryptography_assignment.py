@@ -56,9 +56,10 @@ def encrypt_message(message):
         file.write(encrypted_message)
     print(f'Encrypted message: {encrypted_message}')
 
-# Example usage
-message = "This is a secret message"
-encrypt_message(message)
+# Remove hashtags in front of message, encrypt_message(message), and decrypt_message() in order to test functionality without user input
+
+# message = "This is a secret message"
+# encrypt_message(message)
 
 def load_private_key():
     with open('private_key.pem', 'rb') as private_key_file:
@@ -82,5 +83,18 @@ def decrypt_message():
     )
     print(f'Decrypted message: {decrypted_message.decode()}')
 
-# Example usage
-decrypt_message()
+# Remove hashtag below to test functionality without user input
+# decrypt_message()
+
+def main():
+    choice = input("Please type E to encrypt a message, or D to decrypt the previous message: ").upper()
+    if choice == "E":
+        message = input("Please enter a message to encrypt: ")
+        encrypt_message(message)
+    elif choice == "D":
+        decrypt_message()
+    else:
+        print("Invalid choice, please RTFM and get back to me")
+
+if __name__ == '__main__':
+    main()
